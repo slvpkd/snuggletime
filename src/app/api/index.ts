@@ -1,17 +1,33 @@
 import OpenAI from "openai";
 
-export default async function handler(req: any, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { answer: string; }): void; new(): any; }; }; }) {
 
-    const openai = new OpenAI({
-      apiKey: "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",
-      dangerouslyAllowBrowser: true,
-    });
-  
-    const response = await openai.completions.create({
-      model: "gpt-4",
-      prompt: ""
-    ,
-    });
-  
-    res.status(200).json({ answer: response.choices[0].text });
-  }
+
+export const generateStory = async (
+  synopsis: string,
+  clb: (res: string) => void
+) => {
+  await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer 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`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: "you are a helpful assistant",
+        },
+        {
+          role: "user",
+          content:
+            "Please generate a childrens short story which is five paragraphs long using the following synopsis: " +
+            synopsis,
+        },
+      ],
+    }),
+  })
+    .then((data) => data.json())
+    .then((data) => clb(data.choices[0].message.content));
+};

@@ -14,7 +14,7 @@ export default function Footer() {
 
       <div className="flex gap-4">
         <a
-          href="#"
+          href="https://www.linkedin.com/in/slvpkd/"
           target="_blank"
           className="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600"
         >
@@ -31,7 +31,7 @@ export default function Footer() {
         </a>
 
         <a
-          href="#"
+          href="https://github.com/slvpkd/snuggletime"
           target="_blank"
           className="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600"
         >
