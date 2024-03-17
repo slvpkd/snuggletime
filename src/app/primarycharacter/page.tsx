@@ -5,6 +5,11 @@ import { useAppContext } from "@/context";
 import { AppData } from "../api/AppData";
 import CharacterTraitModal from "@/components/charactertrait";
 import Link from "next/link";
+import { Utils } from "../utils";
+import Heading from "@/components/heading";
+import Body from "@/components/body";
+import Divider from "@/components/divider";
+import PageLink from "@/components/pagelink";
 
 const PrimaryCharacter = () => {
   const {
@@ -14,36 +19,22 @@ const PrimaryCharacter = () => {
     handlePrimaryCharacterNameChange,
   } = useAppContext();
 
-  const generateRandomName = () =>
-    AppData.NAMES[Math.floor(Math.random() * AppData.NAMES.length)];
-
-  const character = AppData.CHARACTERS.filter(
-    (item) => item.name === primaryCharacter
-  )[0];
-
-  const trait = AppData.CHARACTER_TRAITS.filter(
-    (item) => item.name === primaryCharacterTrait
-  )[0];
+  
 
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12 md:px-20">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <h2 className="mb-4 text-2xl font-bold text-gray-800 md:mb-8 lg:text-6xl xl:mb-12">
-          Create a Character
-        </h2>
-
-        <div className="flex items-start justify-between gap-2 sm:items-center md:mb-8">
-          <p className="max-w-screen-lg text-sm text-gray-500 lg:text-base ">
-            Every story needs a hero character, here you can create your own and
-            even give them a name...
-          </p>
-        </div>
+        <Heading value="Create a Character" />
+        <Body
+          value=" Every story needs a hero character, here you can create your own and
+            even give them a name..."
+        />
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
           <div className="h-32 rounded-lg">
             <div className="flex items-center gap-4">
               <img
-                src={"/assets/Character_Traits/" + trait.filename}
+                src={"/assets/Character_Traits/" + Utils.getCharacterTraitByName(primaryCharacterTrait).filename}
                 alt=""
                 className="size-20 rounded-lg object-cover"
               />
@@ -59,10 +50,11 @@ const PrimaryCharacter = () => {
               </div>
             </div>
           </div>
+
           <div className="h-32 rounded-lg">
             <div className="flex items-center gap-4">
               <img
-                src={"/assets/Characters/" + character.filename}
+                src={"/assets/Characters/" + Utils.getCharacterByName(primaryCharacter).filename}
                 alt=""
                 className="size-20 rounded-lg object-cover"
               />
@@ -76,6 +68,7 @@ const PrimaryCharacter = () => {
               </div>
             </div>
           </div>
+
           <div className="h-32 rounded-lg">
             <div className="flex items-center gap-4">
               <img
@@ -99,7 +92,9 @@ const PrimaryCharacter = () => {
                     <button
                       type="button"
                       onClick={() => {
-                        handlePrimaryCharacterNameChange(generateRandomName());
+                        handlePrimaryCharacterNameChange(
+                          Utils.generateRandomName()
+                        );
                       }}
                       className="block rounded-lg w-full bg-indigo-600 uppercase px- py-3 text-xs font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
                     >
@@ -112,15 +107,16 @@ const PrimaryCharacter = () => {
             </div>
           </div>
         </div>
-        <span className="flex items-center">
-          <span className="h-px flex-1 bg-black mb-4"></span>
-        </span>
-        <Link
-          href="/scenario"
-          className="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base"
-        >
-          Next: Scenario
-        </Link>
+        <Divider />
+
+        <div className="flow-root">
+          <p className="float-left">
+            <PageLink href="/location" label="Previous: Location" />
+          </p>
+          <p className="float-right">
+            <PageLink href="/scenario" label="Next: Scenario" />
+          </p>
+        </div>
       </div>
     </div>
   );

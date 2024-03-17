@@ -3,6 +3,10 @@
 import { useAppContext } from "@/context";
 import { AppData } from "../api/AppData";
 import Link from "next/link";
+import Heading from "@/components/heading";
+import Body from "@/components/body";
+import Divider from "@/components/divider";
+import PageLink from "@/components/pagelink";
 
 const Scenario = () => {
   const { scenario, handleScenarioChange } = useAppContext();
@@ -10,15 +14,8 @@ const Scenario = () => {
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12 md:px-20">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <h2 className="mb-4 text-2xl font-bold text-gray-800 md:mb-8 lg:text-6xl xl:mb-12">
-          Choose a scenario...
-        </h2>
-
-        <div className="flex items-start justify-between gap-2 sm:items-center md:mb-8">
-          <p className="max-w-screen-lg text-sm text-gray-500 lg:text-base ">
-            Every hero needs a mission, choose your quest wisely...
-          </p>
-        </div>
+        <Heading value="Scenario" />
+        <Body value="Every hero needs a mission, choose your quest wisely..." />
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
           {AppData.SCENARIO.map((loc, index) => {
@@ -35,7 +32,7 @@ const Scenario = () => {
                       src={"../../assets/Scenario/" + loc.filename}
                       loading="lazy"
                       alt={loc.label}
-                      className="w-16  aspect-square object-center transition duration-200 "
+                      className="w-16 aspect-square object-center transition duration-200 "
                     />
                   </div>
 
@@ -47,17 +44,19 @@ const Scenario = () => {
             );
           })}
         </div>
-        <span className="flex items-center">
-          <span className="h-px flex-1 bg-black my-4"></span>
-        </span>
-        <div className="flex items-start justify-between gap-8 sm:items-center md:mb-8">
-            <Link
-              href="/summary"
-              className="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base"
-            >
-              Summary
-            </Link>
-          </div>
+        <Divider />
+
+        <div className="flow-root">
+          <p className="float-left">
+            <PageLink
+              href="/primarycharacter"
+              label="Previous: Create a character"
+            />{" "}
+          </p>
+          <p className="float-right">
+            <PageLink href="/story" label="Next: Generate Story" />
+          </p>
+        </div>
       </div>
     </div>
   );
