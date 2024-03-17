@@ -9,6 +9,8 @@ import Heading from "@/components/heading";
 import Body from "@/components/body";
 import Divider from "@/components/divider";
 import PageLink from "@/components/pagelink";
+import Steps from "@/components/steps";
+import Step from "@/components/step";
 
 const Location = () => {
   const { location, handleLocationChange } = useAppContext();
@@ -17,6 +19,13 @@ const Location = () => {
 
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12 md:px-20">
+      <Steps>
+        <Step id={1} label="Season" active={true} />
+        <Step id={2} label="Location" active={true} />
+        <Step id={3} label="Character" />
+        <Step id={4} label="Scenario" />
+        <Step id={5} label="Complete" />
+      </Steps>
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <Heading value={`Location (${data.label})`} />
 

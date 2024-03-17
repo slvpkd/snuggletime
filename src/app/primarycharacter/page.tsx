@@ -10,6 +10,8 @@ import Heading from "@/components/heading";
 import Body from "@/components/body";
 import Divider from "@/components/divider";
 import PageLink from "@/components/pagelink";
+import Steps from "@/components/steps";
+import Step from "@/components/step";
 
 const PrimaryCharacter = () => {
   const {
@@ -19,10 +21,15 @@ const PrimaryCharacter = () => {
     handlePrimaryCharacterNameChange,
   } = useAppContext();
 
-  
-
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12 md:px-20">
+      <Steps>
+        <Step id={1} label="Season" active={true} />
+        <Step id={2} label="Location" active={true} />
+        <Step id={3} label="Character" active={true} />
+        <Step id={4} label="Scenario" />
+        <Step id={5} label="Complete" />
+      </Steps>
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <Heading value="Create a Character" />
         <Body
@@ -34,7 +41,10 @@ const PrimaryCharacter = () => {
           <div className="h-32 rounded-lg">
             <div className="flex items-center gap-4">
               <img
-                src={"/assets/Character_Traits/" + Utils.getCharacterTraitByName(primaryCharacterTrait).filename}
+                src={
+                  "/assets/Character_Traits/" +
+                  Utils.getCharacterTraitByName(primaryCharacterTrait).filename
+                }
                 alt=""
                 className="size-20 rounded-lg object-cover"
               />
@@ -54,7 +64,10 @@ const PrimaryCharacter = () => {
           <div className="h-32 rounded-lg">
             <div className="flex items-center gap-4">
               <img
-                src={"/assets/Characters/" + Utils.getCharacterByName(primaryCharacter).filename}
+                src={
+                  "/assets/Characters/" +
+                  Utils.getCharacterByName(primaryCharacter).filename
+                }
                 alt=""
                 className="size-20 rounded-lg object-cover"
               />

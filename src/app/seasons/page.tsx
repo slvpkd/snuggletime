@@ -9,6 +9,8 @@ import Heading from "@/components/heading";
 import Body from "@/components/body";
 import PageLink from "@/components/pagelink";
 import Divider from "@/components/divider";
+import Steps from "@/components/steps";
+import Step from "@/components/step";
 
 const Seasons = () => {
   const { season, handleSeasonChange } = useAppContext();
@@ -16,6 +18,13 @@ const Seasons = () => {
 
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12 md:px-20">
+      <Steps>
+        <Step id={1} label="Season" active={true} />
+        <Step id={2} label="Location" />
+        <Step id={3} label="Character" />
+        <Step id={4} label="Scenario" />
+        <Step id={5} label="Complete" />
+      </Steps>
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <Heading value={`Season (${data.label})`} />
         <Body
@@ -41,9 +50,10 @@ const Seasons = () => {
         <Divider />
 
         <div className="flow-root">
-          <p className="float-right"><PageLink href="/location" label="Next: Location" /></p>
+          <p className="float-right">
+            <PageLink href="/location" label="Next: Location" />
+          </p>
         </div>
-        
       </div>
     </div>
   );
