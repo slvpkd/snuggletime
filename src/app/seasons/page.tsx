@@ -51,7 +51,7 @@ const Seasons = () => {
 
         <div className="flow-root">
           <p className="float-right">
-            <PageLink href="/location" label="Next: Location" />
+            <PageLink href="/location" label=" Location" align="right" />
           </p>
         </div>
       </div>

@@ -31,7 +31,7 @@ const PrimaryCharacter = () => {
         <Step id={5} label="Complete" />
       </Steps>
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <Heading value="Create a Character" />
+        <Heading value="Characterracter" />
         <Body
           value=" Every story needs a hero character, here you can create your own and
             even give them a name..."
@@ -50,7 +50,7 @@ const PrimaryCharacter = () => {
               />
 
               <div>
-                <h3 className="text-xl text-gray-900 pt-4 pb-2">
+                <h3 className="text-lg uppercase text-gray-900 pt-4 pb-2">
                   Character Trait
                 </h3>
 
@@ -73,7 +73,7 @@ const PrimaryCharacter = () => {
               />
 
               <div>
-                <h3 className="text-xl text-gray-900 pt-4 pb-2">Character</h3>
+                <h3 className="text-lg text-gray-900 pt-4 pb-2 uppercase">Character</h3>
 
                 <p className="mt-0.5 text-gray-700">
                   <CharacterModal />
@@ -95,7 +95,7 @@ const PrimaryCharacter = () => {
                   <div className="relative">
                     <input
                       type="text"
-                      className="pl-5 pr-4 py-2 border rounded-lg mb-2"
+                      className="pl-5 pr-8 py-2 border rounded-lg mb-2"
                       placeholder="Enter your name"
                       value={primaryCharacterName}
                       onChange={(e) =>
@@ -109,9 +109,9 @@ const PrimaryCharacter = () => {
                           Utils.generateRandomName()
                         );
                       }}
-                      className="block rounded-lg w-full bg-indigo-600 uppercase px- py-3 text-xs font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
-                    >
-                      <span className="sr-only">Submit</span>
+                      className="bg-blue-600 hover:bg-blue-400 px-20 text-centeruppercase text-xs  text-white font-bold py-2 px-8 rounded inline-flex uppercase items-center"
+                      >
+                      <span className="sr-only">Randomise</span>
                       Randomise
                     </button>
                   </div>
@@ -124,10 +124,10 @@ const PrimaryCharacter = () => {
 
         <div className="flow-root">
           <p className="float-left">
-            <PageLink href="/location" label="Previous: Location" />
+            <PageLink href="/location" label="Location" align="left" />
           </p>
           <p className="float-right">
-            <PageLink href="/scenario" label="Next: Scenario" />
+            <PageLink href="/scenario" label=" Scenario" align="right" />
           </p>
         </div>
       </div>

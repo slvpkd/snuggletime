@@ -2,11 +2,10 @@
 
 import { Spinner } from "@/components/spinner";
 import { useAppContext } from "@/context";
-import OpenAI from "openai";
 import { useEffect, useState } from "react";
-import { generateStory } from "../api";
 import Steps from "@/components/steps";
 import Step from "@/components/step";
+import { fetchRequest } from "../api";
 
 const Story = () => {
   const { storySynopsis } = useAppContext();
@@ -14,10 +13,14 @@ const Story = () => {
   const [isLoading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    generateStory(storySynopsis, (res: string) => {
-      setStory(res);
-      setLoading(false);
-    });
+      fetchRequest(
+        "Please generate a childrens short story which is five paragraphs long using the following synopsis: " +
+          storySynopsis,
+        (res: string) => {
+          setStory(res);
+          setLoading(false);
+        }
+      );
   }, [storySynopsis]);
 
   return (
@@ -27,7 +30,7 @@ const Story = () => {
         <Step id={2} label="Location" active={true} />
         <Step id={3} label="Character" active={true} />
         <Step id={4} label="Scenario" active={true} />
-        <Step id={5} label="Complete"active={true} />
+        <Step id={5} label="Complete" active={true} />
       </Steps>
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         {isLoading && <Spinner />}

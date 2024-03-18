@@ -59,11 +59,12 @@ const Scenario = () => {
           <p className="float-left">
             <PageLink
               href="/primarycharacter"
-              label="Previous: Create a character"
-            />{" "}
+              label="Characterracter"
+              align="left"
+            />
           </p>
           <p className="float-right">
-            <PageLink href="/story" label="Next: Generate Story" />
+            <PageLink href="/story" className="bg-red-600" label=" Generate Story" align="right" />
           </p>
         </div>
       </div>

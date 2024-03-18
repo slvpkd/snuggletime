@@ -1,11 +1,10 @@
 import OpenAI from "openai";
 
-
-
-export const generateStory = async (
-  synopsis: string,
+export const fetchRequest = async (
+  message: string,
   clb: (res: string) => void
 ) => {
+  console.log("Fetching Story...");
   await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -21,9 +20,7 @@ export const generateStory = async (
         },
         {
           role: "user",
-          content:
-            "Please generate a childrens short story which is five paragraphs long using the following synopsis: " +
-            synopsis,
+          content: message,
         },
       ],
     }),

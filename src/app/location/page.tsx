@@ -50,12 +50,13 @@ const Location = () => {
 
         <div className="flow-root">
           <p className="float-left">
-            <PageLink href="/seasons" label="Previous: Season" />
+            <PageLink href="/seasons" label="Season" align="left" />
           </p>
           <p className="float-right">
             <PageLink
               href="/primarycharacter"
-              label="Next: Create a character"
+              label=" Characterracter"
+              align="right"
             />
           </p>
         </div>
