@@ -31,7 +31,7 @@ const PrimaryCharacter = () => {
         <Step id={5} label="Complete" />
       </Steps>
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <Heading value="Characterracter" />
+        <Heading value="Character" />
         <Body
           value=" Every story needs a hero character, here you can create your own and
             even give them a name..."
