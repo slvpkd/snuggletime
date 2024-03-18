@@ -55,7 +55,7 @@ const Location = () => {
           <p className="float-right">
             <PageLink
               href="/primarycharacter"
-              label=" Characterracter"
+              label="Character"
               align="right"
             />
           </p>
