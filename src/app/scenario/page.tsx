@@ -59,7 +59,7 @@ const Scenario = () => {
           <p className="float-left">
             <PageLink
               href="/primarycharacter"
-              label="Characterracter"
+              label="Character"
               align="left"
             />
           </p>
