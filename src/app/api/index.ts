@@ -26,5 +26,8 @@ export const fetchRequest = async (
     }),
   })
     .then((data) => data.json())
-    .then((data) => clb(data.choices[0].message.content));
+    .then((data) => clb(data.choices[0].message.content))
+    .catch((e) => {
+      console.log(e);
+    });
 };
