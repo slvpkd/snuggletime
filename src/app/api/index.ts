@@ -8,7 +8,7 @@ export const fetchRequest = async (
   await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
-      Authorization: `Bearer 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`,
+      Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({

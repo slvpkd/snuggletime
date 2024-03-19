@@ -8,6 +8,8 @@ import Step from "@/components/step";
 import { fetchRequest } from "../api";
 import { Utils } from "../utils";
 
+
+
 const Story = () => {
   const {
     season,
@@ -23,6 +25,8 @@ const Story = () => {
   const [message, setMessage] = useState<string>("");
 
   const [isLoading, setLoading] = useState<boolean>(true);
+
+  
 
   const synopsisString = Utils.generateSynopsis(
     season,
