@@ -64,7 +64,7 @@ const Scenario = () => {
             />
           </p>
           <p className="float-right">
-            <PageLink href="/story" className="bg-red-600" label=" Generate Story" align="right" />
+            <PageLink href="/story" className="bg-red-600 hover:bg-red-400" label=" Generate Story" align="right" />
           </p>
         </div>
       </div>
