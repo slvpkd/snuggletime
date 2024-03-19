@@ -1,13 +1,11 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
-<>     
-
+    <>
       <div className="bg-white py-6 sm:py-8 lg:py-12">
         <div className="mx-auto max-w-screen-xl px-4 md:px-12">
           <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
@@ -27,11 +25,11 @@ export default function Home() {
                 Imagine, Personalise, Create
               </h3>
 
-              <motion.p 
-               animate={{ opacity: 1 }}
-               transition={{ ease: "easeOut", duration: 2 }}
-              
-              className="mb-8 leading-relaxed text-gray-500 md:mb-12  xl:text-lg">
+              <motion.p
+                animate={{ opacity: 1 }}
+                transition={{ ease: "easeOut", duration: 2 }}
+                className="mb-8 leading-relaxed text-gray-500 md:mb-12  xl:text-lg"
+              >
                 Introducing SnuggleTime AI, an enchanting app that creates
                 personalized children's short stories. With its advanced natural
                 language processing, SnuggleTime AI crafts captivating tales
@@ -128,8 +126,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
       </div>
-  </>
+    </>
   );
 }
