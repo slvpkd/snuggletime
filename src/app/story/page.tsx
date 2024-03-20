@@ -7,6 +7,8 @@ import Steps from "@/components/steps";
 import Step from "@/components/step";
 import { fetchRequest } from "../api";
 import { Utils } from "../utils";
+import PageLink from "@/components/pagelink";
+import Link from "next/link";
 
 const Story = () => {
   const {
@@ -63,24 +65,23 @@ const Story = () => {
   }, [story]);
 
   return (
-    <div className="bg-white py-6 sm:py-8 lg:py-12 md:px-20">
-      <Steps>
-        <Step id={1} label="Season" active={true} />
-        <Step id={2} label="Location" active={true} />
-        <Step id={3} label="Character" active={true} />
-        <Step id={4} label="Scenario" active={true} />
-        <Step id={5} label="Complete" active={true} />
-      </Steps>
+    <div className="bg-white py-2 sm:py-8 lg:py-12 md:px-20">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         {isLoading && <Spinner label={message} />}
 
         {!isLoading && (
           <div className="mb-4 whitespace-normal text-2xl font-bold text-gray-800 md:mb-8 lg:text-xl xl:mb-12">
-            <pre className="text-4xl text-center py-8">{title}</pre>
-            <pre className="whitespace-pre-line">{story}</pre>
+            <pre className="text-3xl text-center py-8 whitespace-pre-line">
+              {title}
+            </pre>
+            <pre className="whitespace-pre-line">{story}</pre><br/>
+            <pre className="text-3xl text-center py-8 whitespace-pre-line">
+             The End
+            </pre>
           </div>
         )}
       </div>
+      
     </div>
   );
 };
